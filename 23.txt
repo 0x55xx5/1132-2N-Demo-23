@@ -1,1 +1,11 @@
 git log --pretty=format:"%h%x09%an%x09%ad%x09%s" --after="2025-02-18"
+
+ npm i tailwindcss @tailwindcss/vite
+
+
+User@E201-46 MINGW64 /d/demo (main)
+$ npm  i react-icons
+
+
+User@E201-46 MINGW64 /d/demo (main)
+$ npm  i nanoid
