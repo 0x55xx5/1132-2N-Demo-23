@@ -2,6 +2,6 @@
 
 @layer components {
   .my-btn {
-    @apply max-w-7xl px-8 py-8;
+    @apply max-w-7xl px-8 mx-auto ;
   }
 }

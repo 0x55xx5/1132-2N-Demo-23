@@ -5,7 +5,7 @@ const Navbar_xx = () => {
     <nav className='bg-emerald-100'>
       <div
         className='my-btn
-        mx-auto flex flex-col 
+        py-8 flex flex-col 
         sm:flex-row  
         sm:items-center
         sm:gap-x-16'
@@ -20,7 +20,7 @@ const Navbar_xx = () => {
               <a
                 key={id}
                 href={href}
-                className='capitalize text-lg hover:text-emerald-600
+                className='capitalize text-[23px] hover:text-emerald-600
               tracking-wide duration-200'
               >
                 {text}
