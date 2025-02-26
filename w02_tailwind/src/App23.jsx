@@ -7,7 +7,7 @@ function App_23() {
   return (
     <>
       <Navbar_xx />
-
+      <Hero_xx />
     </>
   );
 }
