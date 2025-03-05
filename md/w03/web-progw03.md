@@ -17,7 +17,7 @@
 ![](w03-p1-3.png)
  
 ```
-
+6fcdba3   Wed Mar 5 23:16:40 2025 +0800   W03-P1: Use Image quality to compare image size
 ```
 
 
@@ -36,5 +36,14 @@
 ![](w03-p2-3.png)
  
 ```
+54ea819   Wed Mar 5 23:40:07 2025 +0800   W03-P2: Show image size in About Page
+```
 
+
+### git log 
+
+```
+be2c69e   Wed Mar 5 23:40:36 2025 +0800   update
+54ea819   Wed Mar 5 23:40:07 2025 +0800   W03-P2: Show image size in About Page
+6fcdba3   Wed Mar 5 23:16:40 2025 +0800   W03-P1: Use Image quality to compare image size
 ```
