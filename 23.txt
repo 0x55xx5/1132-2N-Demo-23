@@ -9,3 +9,6 @@ $ npm  i react-icons
 
 User@E201-46 MINGW64 /d/demo (main)
 $ npm  i nanoid
+
+
+npm i @supabase/supabase-js    

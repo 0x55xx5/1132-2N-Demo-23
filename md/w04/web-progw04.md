@@ -2,25 +2,9 @@
 
 
 
-### W04-P1: 
+### W04-P1: Show Header_xx component with logo and nav items
  
-#### => quality=100, image size = 107KB
- 
-![](w04-p1-1.png)
- 
-#### => quality=60, , image size = 16.7KB
- 
-![](w04-p1-2.png)
- 
-#### => original image size, size = 6.86 MB
- 
-![](w04-p1-3.png)
- 
-```
-
-```
-
-
+![](w04-p1.png)
 
 
 
