@@ -12,3 +12,6 @@ $ npm  i nanoid
 
 
 npm i @supabase/supabase-js    
+npm i date-fns  
+npm i @heroicons/react
+
