@@ -125,6 +125,23 @@ exports.Prisma.Product_testScalarFieldEnum = {
   name: 'name'
 };
 
+exports.Prisma.ProductScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  category: 'category',
+  images: 'images',
+  brand: 'brand',
+  description: 'description',
+  stock: 'stock',
+  price: 'price',
+  rating: 'rating',
+  numReviews: 'numReviews',
+  isFeatured: 'isFeatured',
+  banner: 'banner',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -135,9 +152,15 @@ exports.Prisma.QueryMode = {
   insensitive: 'insensitive'
 };
 
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
+};
+
 
 exports.Prisma.ModelName = {
-  Product_test: 'Product_test'
+  Product_test: 'Product_test',
+  Product: 'Product'
 };
 
 /**
