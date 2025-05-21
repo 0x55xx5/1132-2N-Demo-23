@@ -1,8 +1,9 @@
-import Header23 from "@/components/shared/header_23";
-import ModeToggle from "@/components/shared/dark_toggle";
+import Header23 from '@/components/shared/header_23';
+import ModeToggle from '@/components/shared/dark_toggle';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title:'123123'
+   title:'123123'
 };
 
 export default function RootLayout({
