@@ -9,4 +9,6 @@ npx create-next-app@latest
 npm install @prisma/client @auth/prisma-adapter
 npm install prisma --save-dev
 
+npx tsx ./db/test.ts  
+
 

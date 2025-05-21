@@ -53,6 +53,13 @@ const CreateProduct = async () => {
     console.log('Created products:', prods);
 
 }
+const CreateUsers = async () => {
+    const users= await prisma.user.createMany({
+        data: simpledata.users,
+    });
+    console.log('Created users:', users);
+
+}
 
 async function main() {
    // await  CreateProduct();
@@ -60,7 +67,8 @@ async function main() {
   //  await  getProductById();
   //await deleteAll();
   //await deleteProductById();
-  await getProductsByPlainSQL3('Polo');
+ // await getProductsByPlainSQL3('Polo');
+ await CreateUsers();
 }
 main().then(
     async() => {
@@ -70,7 +78,7 @@ main().then(
 
     async(e) => {
         console.error('Error in main function:', e);
-        await prisma.$disconnect(0);
+        await prisma.$disconnect();
         process.exit(1);
     }
 );
