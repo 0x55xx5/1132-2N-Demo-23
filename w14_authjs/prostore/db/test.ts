@@ -62,13 +62,13 @@ const CreateUsers = async () => {
 }
 
 async function main() {
-   // await  CreateProduct();
+   await  CreateProduct();
    // await  getProducts();
   //  await  getProductById();
   //await deleteAll();
   //await deleteProductById();
  // await getProductsByPlainSQL3('Polo');
- await CreateUsers();
+// await CreateUsers();
 }
 main().then(
     async() => {

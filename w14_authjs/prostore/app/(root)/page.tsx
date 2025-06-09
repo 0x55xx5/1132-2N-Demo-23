@@ -1,7 +1,7 @@
 import React from 'react'
 import {Button} from '@/components/ui/button'
 import { Ghost } from 'lucide-react'
-import {getLatestProducts_xx} from '@/lib/actions/product.actions_23'
+import {getLatestProducts_xx} from '@/lib/actions/product.actions_xx'
 import { ProductList_23} from '@/components/shared/product_23/product_list';
 
 const delay=(ms: number) => new Promise(resolve => setTimeout(resolve, ms));
