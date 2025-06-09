@@ -21,6 +21,7 @@ export async function signInWithCredentials(
   formData: FormData
 ) {
   try {
+    console.log('signIn formData', formData);
     const user = signInFormSchema.parse({
       email: formData.get('email'),
       password: formData.get('password'),
@@ -39,36 +40,7 @@ export async function signInWithCredentials(
 export async function signOutUser() {
   await signOut();
 }
-// Update the user profile
-export async function updateProfile(user: { name: string; email: string }) {
-  try {
-    const session = await auth();
 
-    const currentUser = await prisma.user.findFirst({
-      where: {
-        id: session?.user?.id,
-      },
-    });
-
-    if (!currentUser) throw new Error('User not found');
-
-    await prisma.user.update({
-      where: {
-        id: currentUser.id,
-      },
-      data: {
-        name: user.name,
-      },
-    });
-
-    return {
-      success: true,
-      message: 'User updated successfully',
-    };
-  } catch (error) {
-    return { success: false, data: [], message: formatError(error) };
-  }
-}
 // Sign up user
 export async function signUpUser(prevState: unknown, formData: FormData) {
   try {
@@ -111,9 +83,120 @@ export async function signUpUser(prevState: unknown, formData: FormData) {
     return { success: false, message: formatError(error) };
   }
 }
-// Get all users with pagination
 
+export async function updateProfile(user: { name: string; email: string }) {
+  try {
+    const session = await auth();
 
-// Delete a user by ID
+    const currentUser = await prisma.user.findFirst({
+      where: {
+        id: session?.user?.id,
+      },
+    });
 
+    if (!currentUser) throw new Error('User not found');
 
+    await prisma.user.update({
+      where: {
+        id: currentUser.id,
+      },
+      data: {
+        name: user.name,
+      },
+    });
+
+    return {
+      success: true,
+      message: 'User updated successfully',
+    };
+  } catch (error) {
+    return { success: false, message: formatError(error) };
+  }
+}
+
+// Get user by the ID
+export async function getUserById(userId: string) {
+  const user = await prisma.user.findFirst({
+    where: { id: userId },
+  });
+  if (!user) throw new Error('User not found');
+  return user;
+}
+
+// Get all the users
+export async function getAllUsers({
+  limit = PAGE_SIZE,
+  page,
+  query,
+}: {
+  limit?: number;
+  page: number;
+  query: string;
+}) {
+  const queryFilter: Prisma.UserWhereInput =
+    query && query !== 'all'
+      ? {
+          name: {
+            contains: query,
+            mode: 'insensitive',
+          } as Prisma.StringFilter,
+        }
+      : {};
+
+  const data = await prisma.user.findMany({
+    where: {
+      ...queryFilter,
+    },
+    orderBy: { createdAt: 'desc' },
+    take: limit,
+    skip: (page - 1) * limit,
+  });
+
+  const dataCount = await prisma.user.count();
+
+  return {
+    data,
+    totalPages: Math.ceil(dataCount / limit),
+  };
+}
+
+// Delete a user
+export async function deleteUser(id: string) {
+  try {
+    await prisma.user.delete({ where: { id } });
+
+    revalidatePath('/admin/users');
+
+    return {
+      success: true,
+      message: 'User deleted successfully',
+    };
+  } catch (error) {
+    return {
+      success: false,
+      message: formatError(error),
+    };
+  }
+}
+
+// Update a user
+export async function updateUser(user: z.infer<typeof updateUserSchema>) {
+  try {
+    await prisma.user.update({
+      where: { id: user.id },
+      data: {
+        name: user.name,
+        role: user.role,
+      },
+    });
+
+    revalidatePath('/admin/users');
+
+    return {
+      success: true,
+      message: 'User updated successfully',
+    };
+  } catch (error) {
+    return { success: false, message: formatError(error) };
+  }
+}
