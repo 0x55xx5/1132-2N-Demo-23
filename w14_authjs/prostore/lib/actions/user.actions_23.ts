@@ -66,7 +66,7 @@ export async function updateProfile(user: { name: string; email: string }) {
       message: 'User updated successfully',
     };
   } catch (error) {
-    return { success: false, message: formatError(error) };
+    return { success: false, data: [], message: formatError(error) };
   }
 }
 // Sign up user
@@ -111,3 +111,9 @@ export async function signUpUser(prevState: unknown, formData: FormData) {
     return { success: false, message: formatError(error) };
   }
 }
+// Get all users with pagination
+
+
+// Delete a user by ID
+
+
