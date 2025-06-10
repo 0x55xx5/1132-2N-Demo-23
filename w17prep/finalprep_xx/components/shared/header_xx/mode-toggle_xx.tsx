@@ -1,6 +1,7 @@
 'use client';
 
 import { useTheme } from 'next-themes';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { MoonIcon, SunIcon, SunMoon } from 'lucide-react';
 
@@ -16,6 +17,16 @@ import {
 
 const Modetoggle_xx = () => {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
